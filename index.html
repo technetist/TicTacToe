@@ -83,7 +83,7 @@
 	      document.getElementById('status').innerHTML =
 	        'Thanks for logging in, ' + response.name + '!';
 					var my_id = response.id;
-						console.log(response);
+						console.log(my_id);
 		  });
 
 	  }
@@ -91,7 +91,8 @@
 			FB.ui({method: 'apprequests',
 			  message: 'Invite your friends to play Tic Tac Toe!'
 			}, function(response){
-			  console.log(response);
+				var my_friend_id = response.to[0];
+			  console.log(my_friend_id);
 			});
 		}
 		function logout() {
