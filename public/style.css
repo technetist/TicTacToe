@@ -1,0 +1,124 @@
+/* Space out content a bit */
+body {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+
+
+/* Custom page header */
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+.navbar-header {
+  align-content: center;
+}
+
+.navbar-fixed-top {
+  background-image: none;
+  background-color: #5576b9;
+}
+
+.navbar-fixed-bottom {
+    background-color: #5576b9;
+}
+
+.page-header {
+  text-align: center;
+  border-style: none;
+}
+
+.header-image {
+  margin-top: 10px;
+  max-width: 70px;
+}
+
+.filler {
+  margin-top: 150px;
+}
+
+.filler-less {
+  margin-top: 130px;
+}
+
+
+.center-content {
+  text-align: center;
+  margin: 10px;
+}
+
+.center-content-less {
+  text-align: center;
+  margin: 20px;
+}
+
+
+.btn {
+  background-image: none;
+  background-color: #5576b9;
+  border-radius: 0px;
+  width: 200px;
+  color: white;
+  -webkit-transition: background-color 2s; /* Safari 3.1 to 6.0 */
+  transition: background-color 2s;
+}
+
+.btn:hover {
+  background-color: #5576b9;
+  background-image: none;
+  text-shadow: none;
+  color: white;
+}
+
+.details {
+  display: none !important;
+}
+
+
+
+
+/* Custom page footer */
+.footer {
+
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+}

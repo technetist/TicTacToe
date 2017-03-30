@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Tic-Tac-Toe Game">
+    <meta name="author" content="DGM 3780 Patriots">
+
+    <title>Tic Tac Toe</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  <!-- Initialize Facebook -->
+    <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '356170254782132',
+        xfbml      : true,
+        version    : 'v2.8'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+    <div class="container">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+          </div>
+        </div>
+      </nav>
+
+      <div class="page-header">
+        <h1>Tic - Tac - Toe</h1>
+        <img class="header-image" alt="Tic Tac Toe Logo" src="images/logo.png" >
+      </div>
+
+
+      <!-- Fill Center With Space -->
+      <div class="filler"></div>
+
+      <!-- Button that triggers Game Request from Facebook   -->
+      <div class="center-content">
+        <button id="play" type="button" class="btn btn-default">Play Friend</button>    
+      </div>
+
+
+
+      <!-- Footer -->
+      <footer class="footer">
+        <nav class="navbar navbar-fixed-bottom">
+          <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+          </div>
+        </nav>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Facebook Game Invite -->
+    <script>
+      document.getElementById("play").addEventListener("click", inviteFriend);
+
+      function inviteFriend() {
+
+        FB.ui({method: 'apprequests',
+          message: 'Lets Play Tic-Tac-Toe!'
+        }, function(response){
+          console.log(response);
+        });
+      }
+    </script>
+
+  </body>
+</html>
