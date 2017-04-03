@@ -60,15 +60,28 @@ body {
 
 .center-content {
   text-align: center;
-  margin: 10px;
+  display: block;
+  margin: 10px auto;
 }
 
 .center-content-less {
   text-align: center;
   margin: 20px;
 }
+.width50 {
+  display: block;
+  width: 50%;
+  float: left;
+  padding: 0 20px 0 20px;
+}
+#scorebox{
+  background-color: #3b5998;
 
-
+}
+#scorebox h2.whiteFont {
+  color: #fff;
+  padding: 10px 0 10px 0;
+}
 .btn {
   background-image: none;
   background-color: #5576b9;
