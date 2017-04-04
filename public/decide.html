@@ -36,7 +36,7 @@
     <script>
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : '356170254782132',
+        appId      : '1190327587746982',
         xfbml      : true,
         version    : 'v2.8'
       });
@@ -88,7 +88,7 @@
 
     </div> <!-- /container -->
 
-
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -102,7 +102,8 @@
         FB.ui({method: 'apprequests',
           message: 'Lets Play Tic-Tac-Toe!'
         }, function(response){
-          console.log(response);
+          var opponentId = response.to[0];
+          console.log(opponentId);
         });
       }
     </script>
