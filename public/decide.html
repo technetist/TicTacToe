@@ -103,10 +103,28 @@
           message: 'Lets Play Tic-Tac-Toe!'
         }, function(response){
           var opponentId = response.to[0];
+          checkIfUserExists(opponentId);
+
           console.log(opponentId);
+
         });
       }
     </script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB7d96qhPCaoNsPxzHeOLh99LIPnKQkCOQ",
+        authDomain: "tic-tac-toe-ca33e.firebaseapp.com",
+        databaseURL: "https://tic-tac-toe-ca33e.firebaseio.com",
+        storageBucket: "tic-tac-toe-ca33e.appspot.com",
+        messagingSenderId: "785231830706"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script src="login.js"></script>
 
   </body>
 </html>
