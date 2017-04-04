@@ -90,6 +90,26 @@
       document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
     }
 
+    var USERS_LOCATION = 'https://tic-tac-toe-ca33e.firebaseio.com/Users';
+
+          function userExistsCallback(opponentId, exists) {
+            if (exists) {
+              alert('connecting you with user ' + opponentId + ' exists!');
+              window.location.href = "/game.html";
+            } else {
+              alert('user ' + opponentId + ' does not exist!');
+            }
+          }
+
+          // Tests to see if /users/<userId> has any data. 
+          function checkIfUserExists(opponentId) {
+            var usersRef = firebase.database().ref('Users');
+            usersRef.child(opponentId).once('value', function(snapshot) {
+              var exists = (snapshot.val() !== null);
+              userExistsCallback(opponentId, exists);
+            });
+          }
+
     window.onload = function() {
       initApp();
     };
