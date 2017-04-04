@@ -30,13 +30,17 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
     <!-- Auth with Facebook using Firebase -->
     <script type="text/javascript" src="login.js"></script>
+    <script type="text/javascript" src="custom.js"></script>
+
   </head>
 
   <body>
-
     <div class="container">
       <nav class="navbar navbar-fixed-top">
         <div class="container-fluid">
@@ -47,43 +51,53 @@
 
       <div class="page-header">
         <h1 id="playerName">Player's Name</h1>
-        <img class="header-image" alt="Tic Tac Toe Logo" src="images/logo.png" >
       </div>
-
 
       <div class="center-content">
+        <div id="tic-tac-toe">
+          <div class="row">
+            <h1>Tic Tac Toe</h1>
+            <div class="span3">
 
 
-<!--====================PLACE GAME HERE============================-->
-
-
-
-      </div>
-
+            </div>
+          </div>
+          <ul class="row" id="game">
+            <li id="one" class="btn span1" >+</li>
+            <li id="two" class="btn span1">+</li>
+            <li id="three" class="btn span1">+</li>
+            <li id="four" class="btn span1">+</li>
+            <li id="five" class="btn span1">+</li>
+            <li id="six" class="btn span1">+</li>
+            <li id="seven" class="btn span1">+</li>
+            <li id="eight" class="btn span1">+</li>
+            <li id="nine" class="btn span1">+</li>
+          </ul>
+          <div class="clr">&nbsp;</div>
+          <div class="row"><a href="#" id="reset" class="btn-success btn span3" >Restart</a></div></div>
+        </div>
       <div class="filler"></div>
-
-<div class="center-content" id="scorebox">
-      <!--<h2 class="whiteFonttop" id="playerName">Player's Name</h2>-->
-      <h2 class="whiteFont">Score</h2>
-
-      <div class="width50">
-        <div class="center-content">
-        <h3>Wins</h3>
-        <hr>
-        <h2 id="scoreWin">0</h2>
+      <div class="center-content" id="scorebox">
+        <h2 class="whiteFont">Score</h2>
+        <div class="width50">
+          <div class="center-content">
+            <h3>0</h3>
+            <hr>
+            <div class="input-prepend input-append">
+              <span class="add-on win_text">O won </span><strong id="o_win" class="win_times add-on">0</strong><span class="add-on"> time(s)</span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="width50">
-        <div class="center-content">
-        <h3>Loss</h3>
-        <hr>
-        <h2 id="scoreLoss">0</h2>
+        <div class="width50">
+          <div class="center-content">
+            <h3>X</h3>
+            <hr>
+            <div class="input-prepend input-append">
+              <span class="add-on win_text">X won </span><strong id="x_win" class="win_times add-on">0</strong><span class="add-on"> time(s)</span>
+            </div>
+          </div>
         </div>
-      </div>
-   
-</div> <!-- End center-content -->
-
-
+      </div> <!-- End center-content -->
       <footer class="footer">
         <nav class="navbar navbar-fixed-bottom">
           <div class="container-fluid">
@@ -92,7 +106,6 @@
           </div>
         </nav>
       </footer>
-
     </div> <!-- /container -->
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

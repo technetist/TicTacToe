@@ -12,7 +12,49 @@ body {
   padding-left: 15px;
 }
 
-
+/*******tic-tac-toe******/
+#tic-tac-toe .disable {text-transform:uppercase; font-size:30px; font-family:Georgia, "Times New Roman", Times, serif}
+#tic-tac-toe #game li {float:left; padding:0; list-style:none; text-align:center; margin: 1%; color:#fff; height:60px; line-height:60px; font-size:40px; color:#ccc}
+#tic-tac-toe #game li.disable{color:#fff}
+#tic-tac-toe #game {clear:both}
+.new_span {width:226px}
+#tic-tac-toe #reset {
+    padding: 5px 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    clear: both;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    outline: none;
+    margin: 0 auto;
+    display: table;
+  }
+  h3 {
+    font-family: sans-serif;
+}
+.h1, h1 {
+    font-size: 36px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.input-prepend span.pre_text {width:55px}
+.input-prepend .span1{width:93px}
+.input-prepend {
+    margin-bottom: 10px;
+    font-size: 18px;
+    /* font-weight: bolder; */
+    font-family: sans-serif;
+}
+.clr {clear:both; height:0}
+#tic-tac-toe h1 {text-align:center; font-size:28px; font-family: sans-serif;}
+#tic-tac-toe li::-moz-selection {background:none;color:#000;}
+#tic-tac-toe li::-webkit-selection {background:none;color:#000;}
+#tic-tac-toe {margin:0 auto}
+.input-append .win_times {background:#fff; width:101px}
+.input-append .win_text {width:52px}
+/*******tic-tac-toe END******/
 
 /* Custom page header */
 .header {
@@ -50,7 +92,7 @@ body {
 }
 
 .filler {
-  margin-top: 150px;
+  margin-top: 50px;
 }
 
 .filler-less {
