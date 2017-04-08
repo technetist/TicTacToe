@@ -1,0 +1,179 @@
+/* Space out content a bit */
+body {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/*******tic-tac-toe******/
+#tic-tac-toe .disable {text-transform:uppercase; font-size:30px; font-family:Georgia, "Times New Roman", Times, serif}
+#tic-tac-toe #game li {float:left; padding:0; list-style:none; text-align:center; margin: 1%; color:#fff; height:60px; line-height:60px; font-size:40px; color:#ccc}
+#tic-tac-toe #game li.disable{color:#fff}
+#tic-tac-toe #game {clear:both}
+.new_span {width:226px}
+#tic-tac-toe #reset {
+    padding: 5px 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    clear: both;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    outline: none;
+    margin: 0 auto;
+    display: table;
+  }
+  h3 {
+    font-family: sans-serif;
+}
+.h1, h1 {
+    font-size: 36px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.input-prepend span.pre_text {width:55px}
+.input-prepend .span1{width:93px}
+.input-prepend {
+    margin-bottom: 10px;
+    font-size: 18px;
+    /* font-weight: bolder; */
+    font-family: sans-serif;
+}
+.clr {clear:both; height:0}
+#tic-tac-toe h1 {text-align:center; font-size:28px; font-family: sans-serif;}
+#tic-tac-toe li::-moz-selection {background:none;color:#000;}
+#tic-tac-toe li::-webkit-selection {background:none;color:#000;}
+#tic-tac-toe {margin:0 auto}
+.input-append .win_times {background:#fff; width:101px}
+.input-append .win_text {width:52px}
+/*******tic-tac-toe END******/
+
+/* Custom page header */
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+.navbar-header {
+  align-content: center;
+}
+
+.navbar-fixed-top {
+  background-image: none;
+  background-color: #efae49;
+}
+
+.navbar-fixed-bottom {
+    background-color: #efae49;
+}
+
+.page-header {
+  text-align: center;
+  border-style: none;
+}
+
+.header-image {
+  margin-top: 10px;
+  max-width: 70px;
+}
+
+.filler {
+  margin-top: 50px;
+}
+
+.filler-less {
+  margin-top: 130px;
+}
+
+
+.center-content {
+  text-align: center;
+  display: block;
+  margin: 10px auto;
+}
+
+.center-content-less {
+  text-align: center;
+  margin: 20px;
+}
+.width50 {
+  display: block;
+  width: 50%;
+  float: left;
+  padding: 0 20px 0 20px;
+}
+#scorebox{
+  background-color: #3b5998;
+
+}
+#scorebox h2.whiteFont {
+  color: #fff;
+  padding: 10px 0 10px 0;
+}
+.btn {
+  background-image: none;
+  background-color: #efae49;
+  border-radius: 0px;
+  width: 200px;
+  color: white;
+  -webkit-transition: background-color 2s; /* Safari 3.1 to 6.0 */
+  transition: background-color 2s;
+}
+
+.btn:hover {
+  background-color: #efae49;
+  background-image: none;
+  text-shadow: none;
+  color: white;
+}
+
+.details {
+  display: none !important;
+}
+
+
+
+
+/* Custom page footer */
+.footer {
+
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+}
