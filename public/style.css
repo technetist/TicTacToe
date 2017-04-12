@@ -177,3 +177,68 @@ body {
     margin-bottom: 30px;
   }
 }
+#style-switcher {
+    background:#fbfbfb;
+    padding:10px;
+    border:1px solid #ddd;
+}
+
+#style-switcher h1 {
+    font-size:21px;
+    text-align:center;
+    color:#999;
+    margin:0;
+    margin-left:-10px;
+}
+
+#theme-icons {
+    padding: 30px 0 100px 0;
+}
+#theme-icons ul {
+    list-style:none;
+    display: block;
+    margin:0 auto;
+    padding:0;
+}
+
+#theme-icons ul li{
+    display:block;
+    width:40px;
+    height:40px;
+    margin:10px 40px 0 0;
+    float:left;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+#theme-icons ul li#cyan{
+    background:#5576b9;
+}
+
+#theme-icons ul li#cyan2{
+    background:#5576b9;
+}
+
+#theme-icons ul li#red{
+    background:#f05557;
+}
+
+#theme-icons ul li#orange{
+    background:#efae49;
+}
+
+#theme-icons ul li#green{
+    background:#21b799;
+}
+
+#theme-icons ul li#grass{
+    background:#a2ce7e;
+}
+
+#theme-icons ul li#purple{
+    background:#9661a8;
+}
+
+#theme-icons ul li#pink{
+    background:#f1678d;
+}

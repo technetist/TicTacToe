@@ -20,21 +20,95 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 
-    <!-- Custom styles -->
+    <!-- Custom styles --
     <link href="style.css" rel="stylesheet">
     <link id="main" rel="stylesheet" href="designr-theme-cyan2.css">
     <link id="theme" rel="stylesheet" href="designr-theme-cyan2.css">
-    <link rel="stylesheet" href="style-switcher.css">
+    <link rel="stylesheet" href="style-switcher.css">-->
+
+    <link rel="alternate stylesheet" type="text/css" title="cyan2" href="designr-theme-cyan2.css">
+    <link rel="alternate stylesheet" type="text/css" title="grass" href="designr-theme-grass.css">
+    <link rel="alternate stylesheet" type="text/css" title="green" href="designr-theme-green.css">
+    <link rel="alternate stylesheet" type="text/css" title="orange" href="designr-theme-orange.css">
+    <link rel="alternate stylesheet" type="text/css" title="pink" href="designr-theme-pink.css">
+    <link rel="alternate stylesheet" type="text/css" title="purple" href="designr-theme-purple.css">
+    <link rel="alternate stylesheet" type="text/css" title="red" href="designr-theme-red.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="text/javascript">
+            // *** TO BE CUSTOMISED ***
+
+      var style_cookie_name = "style" ;
+      var style_cookie_duration = 30 ;
+      var style_domain = "http://frameworkstwo.shirleyashby.com/tic-tac-toe/" ;
+
+      // *** END OF CUSTOMISABLE SECTION ***
+      // You do not need to customise anything below this line
+
+      function switch_style ( css_title )
+      {
+      // You may use this script on your site free of charge provided
+      // you do not remove this notice or the URL below. Script from
+      // https://www.thesitewizard.com/javascripts/change-style-sheets.shtml
+        var i, link_tag ;
+        for (i = 0, link_tag = document.getElementsByTagName("link") ;
+          i < link_tag.length ; i++ ) {
+          if ((link_tag[i].rel.indexOf( "stylesheet" ) != -1) &&
+            link_tag[i].title) {
+            link_tag[i].disabled = true ;
+            if (link_tag[i].title == css_title) {
+              link_tag[i].disabled = false ;
+            }
+          }
+          set_cookie( style_cookie_name, css_title,
+            style_cookie_duration, style_domain );
+        }
+      }
+      function set_style_from_cookie()
+      {
+        var css_title = get_cookie( style_cookie_name );
+        if (css_title.length) {
+          switch_style( css_title );
+        }
+      }
+      function set_cookie ( cookie_name, cookie_value,
+          lifespan_in_days, valid_domain )
+      {
+          // https://www.thesitewizard.com/javascripts/cookies.shtml
+          var domain_string = valid_domain ?
+                             ("; domain=" + valid_domain) : '' ;
+          document.cookie = cookie_name +
+                             "=" + encodeURIComponent( cookie_value ) +
+                             "; max-age=" + 60 * 60 *
+                             24 * lifespan_in_days +
+                             "; path=/" + domain_string ;
+      }
+      function get_cookie ( cookie_name )
+      {
+          // https://www.thesitewizard.com/javascripts/cookies.shtml
+          var cookie_string = document.cookie ;
+          if (cookie_string.length != 0) {
+              var cookie_value = cookie_string.match (
+                              '(^|;)[\s]*' +
+                              cookie_name +
+                              '=([^;]*)' );
+              return decodeURIComponent ( cookie_value[2] ) ;
+          }
+          return '' ;
+      }
+
+    </script>
+
   </head>
 
-  <body>
+  <body onload="set_style_from_cookie()">
   <!-- Initialize Facebook -->
     <script>
     window.fbAsyncInit = function() {
@@ -80,17 +154,24 @@
           <div id="theme-icons">
               <ul>
                 <li id="placeholder"></li>
-                <li id="cyan2"></li>
-                <li id="red"></li>
-                <li id="orange"></li>
-                <li id="green"></li>
-                <li id="grass"></li>
-                <li id="purple"></li>
-                <li id="pink"></li>
+                <li onclick="switch_style('cyan2');return false;" name="theme" value="Cyan2 Theme" id="cyan2"></li>
+                <li onclick="switch_style('red');return false;" name="theme" value="Red Theme" id="red"></li>
+                <li onclick="switch_style('orange');return false;" name="theme" value="Orange Theme" id="orange"></li>
+                <li onclick="switch_style('green');return false;" name="theme" value="Green Theme" id="green"></li>
+                <li onclick="switch_style('grass');return false;" name="theme" value="Grass Theme" id="grass"></li>
+                <li onclick="switch_style('purple');return false;" name="theme" value="Purple Theme" id="purple"></li>
+                <li onclick="switch_style('pink');return false;" name="theme" value="Pink Theme" id="pink"></li>
               </ul>
             </div>
               
         </div>
+
+
+
+        <!--<form>
+<input type="submit" onclick="switch_style('blue');return false;" name="theme" value="Blue Theme" id="blue">
+<input type="submit" onclick="switch_style('pink');return false;" name="theme" value="Pink Theme" id="pink">
+</form>-->
 
         <!-- Fill Center With Space -->
       <div class="filler"></div>
@@ -157,7 +238,7 @@
     </script>
 
     <script src="login.js"></script>
-    <script src="style-switcher.js"></script>
+    
 
   </body>
 </html>
