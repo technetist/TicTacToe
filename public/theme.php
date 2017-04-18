@@ -9,7 +9,7 @@
     <meta name="description" content="Tic-Tac-Toe Game">
     <meta name="author" content="DGM 3780 Patriots">
 
-    <title>Tic Tac Toe</title>
+    <title>Theme</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -20,9 +20,14 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
-
-    <!-- Custom styles -->
     <link href="style.css" rel="stylesheet">
+
+    <!-- Custom styles --
+    <link href="style.css" rel="stylesheet">
+    <link id="main" rel="stylesheet" href="designr-theme-cyan2.css">
+    <link id="theme" rel="stylesheet" href="designr-theme-cyan2.css">
+    <link rel="stylesheet" href="style-switcher.css">-->
+
     <link rel="alternate stylesheet" type="text/css" title="cyan2" href="designr-theme-cyan2.css">
     <link rel="alternate stylesheet" type="text/css" title="grass" href="designr-theme-grass.css">
     <link rel="alternate stylesheet" type="text/css" title="green" href="designr-theme-green.css">
@@ -37,7 +42,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  
+
+   
   </head>
 
   <body onload="set_style_from_cookie()">
@@ -70,21 +76,103 @@
       </nav>
 
       <div class="page-header">
-        <h1>Tic - Tac - Toe</h1>
-        <img class="header-image" alt="Tic Tac Toe Logo" src="images/logo.png" >
+        <h1>Choose a Theme</h1>
       </div>
 
 
       <!-- Fill Center With Space -->
       <div class="filler"></div>
 
-      <!-- Button that triggers Game Request from Facebook   -->
+      <!-- Theme Layout   -->
       <div class="center-content">
-        <button id="play" type="button" class="btn btn-default">Play Friend</button>    
-      </div>
+          <!--Style Switcher-->
+          <div id="style-switcher">
+            <h1>Change Color</h1>
+          </div><!--End Style Switcher--> 
+          <div id="theme-icons">
+              <ul>
+                <li id="placeholder"></li>
+                <li onclick="switch_style('cyan2');return false;" name="theme" value="Cyan2 Theme" id="cyan2"></li>
+                <li onclick="switch_style('red');return false;" name="theme" value="Red Theme" id="red"></li>
+                <li onclick="switch_style('orange');return false;" name="theme" value="Orange Theme" id="orange"></li>
+                <li onclick="switch_style('green');return false;" name="theme" value="Green Theme" id="green"></li>
+                <li onclick="switch_style('grass');return false;" name="theme" value="Grass Theme" id="grass"></li>
+                <li onclick="switch_style('purple');return false;" name="theme" value="Purple Theme" id="purple"></li>
+                <li onclick="switch_style('pink');return false;" name="theme" value="Pink Theme" id="pink"></li>
+              </ul>
+            </div>
+              
+        </div>
+
+
+
+        <!--<form>
+<input type="submit" onclick="switch_style('blue');return false;" name="theme" value="Blue Theme" id="blue">
+<input type="submit" onclick="switch_style('pink');return false;" name="theme" value="Pink Theme" id="pink">
+</form>-->
+
+        <!-- Fill Center With Space -->
+      <div class="filler"></div>
 
       <div class="center-content">
-        <a href="theme.php"><button  type="button" class="btn btn-default">Choose Theme</button></a>    
+        <!-- <button  type="button" class="btn btn-default">Buy More Themes</button>  -->
+        <form action="" method="POST" id="payment-form" class="form-horizontal">
+        <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_WlCjMUf81apIJoK3IriEGb56"
+        data-amount="299"
+        data-name="Tic Tac Toe"
+        data-description="Purchase Themes"
+        data-label="Buy More Themes"
+        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+        data-locale="auto">
+        </script>
+        <script>
+        // Hide default stripe button, be careful there if you
+        // have more than 1 button of that class
+        document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+        </script>
+        <button type="submit" class="btn btn-default">Buy More Themes</button>
+
+          <?php
+          require 'lib/Stripe.php';
+
+          $error = '';
+          $success = '';
+              
+          if ($_POST) {
+            Stripe::setApiKey("sk_test_X7nxQNzh9FRIuUW5tyLIkDOr");
+
+            try {
+              if (!isset($_POST['stripeToken']))
+                throw new Exception("The Stripe Token was not generated correctly");
+              Stripe_Charge::create(array("amount" => 299,
+                                          "currency" => "usd",
+                                          "card" => $_POST['stripeToken']));
+              $success = '<div class="alert alert-success">
+                          <strong>Success!</strong> Your payment was successful.
+                  </div>';
+            }
+            catch (Exception $e) {
+            $error = '<div class="alert alert-danger">
+                  <strong>Error!</strong> '.$e->getMessage().'
+                  </div>';
+            }
+          }
+          ?>
+          <div class="alert alert-danger" id="a_x200" style="display: none;"> <strong>Error!</strong> <span class="payment-errors"></span> </div>
+          <span class="payment-success">
+          <?= $success ?>
+          <?= $error ?>
+          </span>
+        </form>
+      </div><!-- End Center Content -->
+
+       <!-- Fill Center With Space -->
+      <div class="filler"></div>
+
+      <div class="center-content">
+        <a href="decide.html"><button  type="button" class="btn btn-default">Back to Home</button></a>    
       </div>
 
 
@@ -106,24 +194,6 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <!-- Facebook Game Invite -->
-    <script>
-      document.getElementById("play").addEventListener("click", inviteFriend);
-
-      function inviteFriend() {
-
-        FB.ui({method: 'apprequests',
-          message: 'Lets Play Tic-Tac-Toe!'
-        }, function(response){
-          var opponentId = response.to[0];
-          checkIfUserExists(opponentId);
-
-          console.log(opponentId);
-
-        });
-      }
-    </script>
-
     <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
     <script>
       // Initialize Firebase
@@ -139,6 +209,6 @@
 
     <script src="login.js"></script>
     <script type="text/javascript" src="switchcss.js"></script>
-
+    <script src="https://js.stripe.com/v3/"></script>
   </body>
 </html>
