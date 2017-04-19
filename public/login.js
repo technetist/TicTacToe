@@ -90,7 +90,7 @@
       document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
     }
 
-    var USERS_LOCATION = 'https://tic-tac-toe-ca33e.firebaseio.com/Users';
+    var USERS_LOCATION = 'https://tic-tac-toe-ca33e.firebaseio.com/Users'; // Needs new database address
 
           function userExistsCallback(opponentId, exists) {
             if (exists) {
