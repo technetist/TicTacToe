@@ -2,7 +2,7 @@
 
       var style_cookie_name = "style" ;
       var style_cookie_duration = 30 ;
-      var style_domain = "shirleyashby.com" ;
+      var style_domain = "http://frameworkstwo.shirleyashby.com/tic-tac-toe/public/" ;
 
       // *** END OF CUSTOMISABLE SECTION ***
       // You do not need to customise anything below this line
