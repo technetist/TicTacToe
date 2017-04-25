@@ -45,7 +45,7 @@
     <script>
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : '356170254782132',
+        appId      : '1190327587746982',
         xfbml      : true,
         version    : 'v2.8'
       });
@@ -65,6 +65,9 @@
       <nav class="navbar navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
+            <div class="greeting">
+              <p>Hello <span id="user-name">user</span>,</p>
+            </div>
           </div>
         </div>
       </nav>
@@ -85,6 +88,11 @@
 
       <div class="center-content">
         <a href="theme.html"><button  type="button" class="btn btn-default">Choose Theme</button></a>    
+      </div>
+
+      <div class="center-content">
+        <!-- Button that handles sign-out -->
+        <button class="btn btn-default" id="quickstart-sign-out">Log out</button>
       </div>
 
 
@@ -126,19 +134,19 @@
 
     <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
     <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyA3EP7OkyARI7-9TxGyCgfMlTVthbXpwHM",
-      authDomain: "tictactoe-37965.firebaseapp.com",
-      databaseURL: "https://tictactoe-37965.firebaseio.com",
-      projectId: "tictactoe-37965",
-      storageBucket: "tictactoe-37965.appspot.com",
-      messagingSenderId: "364295254927"
-    };
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA3EP7OkyARI7-9TxGyCgfMlTVthbXpwHM",
+        authDomain: "tictactoe-37965.firebaseapp.com",
+        databaseURL: "https://tictactoe-37965.firebaseio.com",
+        projectId: "tictactoe-37965",
+        storageBucket: "tictactoe-37965.appspot.com",
+        messagingSenderId: "364295254927"
+      };
       firebase.initializeApp(config);
     </script>
 
-    <script src="login.js"></script>
+    <script src="decide.js"></script>
     <script type="text/javascript" src="switchcss.js"></script>
 
   </body>

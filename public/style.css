@@ -147,6 +147,14 @@ body {
 
 
 
+/* Editing greetings for user */
+.greeting {
+  width: auto;
+  margin: 13px 25px;
+  color: #fff;
+  font-size: 16px;
+}
+
 
 /* Custom page footer */
 .footer {

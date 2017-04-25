@@ -42,9 +42,7 @@
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-    <!-- Auth with Facebook using Firebase -->
-    <script type="text/javascript" src="login.js"></script>
-    <script type="text/javascript" src="custom.js"></script>
+    
 
   </head>
 
@@ -53,6 +51,9 @@
       <nav class="navbar navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
+            <div class="greeting">
+              <p>Hello <span id="user-name">user</span>,</p>
+            </div>
           </div>
         </div>
       </nav>
@@ -83,6 +84,9 @@
           </ul>
           <div class="clr">&nbsp;</div>
           <div class="row"><a href="#" id="reset" class="btn-success btn span3" >Restart</a></div></div>
+          <div class="center-content">
+            <a href="decide.html"><button  type="button" class="btn btn-default">Back to Home</button></a>    
+          </div>
         </div>
       <div class="filler"></div>
       <div class="center-content" id="scorebox">
@@ -126,14 +130,20 @@
     <script>
       // Initialize Firebase
       var config = {
-        apiKey: "AIzaSyB7d96qhPCaoNsPxzHeOLh99LIPnKQkCOQ",
-        authDomain: "tic-tac-toe-ca33e.firebaseapp.com",
-        databaseURL: "https://tic-tac-toe-ca33e.firebaseio.com",
-        storageBucket: "tic-tac-toe-ca33e.appspot.com",
-        messagingSenderId: "785231830706"
+        apiKey: "AIzaSyA3EP7OkyARI7-9TxGyCgfMlTVthbXpwHM",
+        authDomain: "tictactoe-37965.firebaseapp.com",
+        databaseURL: "https://tictactoe-37965.firebaseio.com",
+        projectId: "tictactoe-37965",
+        storageBucket: "tictactoe-37965.appspot.com",
+        messagingSenderId: "364295254927"
       };
       firebase.initializeApp(config);
     </script>
+
     <script type="text/javascript" src="switchcss.js"></script>
+    <!-- Auth with Facebook using Firebase -->
+    <!-- <script type="text/javascript" src="login.js"></script> -->
+    <script type="text/javascript" src="custom.js"></script>
+
   </body>
 </html>

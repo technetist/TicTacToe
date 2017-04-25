@@ -19,7 +19,7 @@
           // The signed-in user info.
           var user = result.user;
           // [START_EXCLUDE]
-          document.getElementById('quickstart-oauthtoken').textContent = token;
+          //document.getElementById('quickstart-oauthtoken').textContent = token;
           // [END_EXCLUDE]
         }).catch(function(error) {
           // Handle Errors here.
@@ -69,9 +69,12 @@
           var isAnonymous = user.isAnonymous;
           var uid = user.uid;
           var providerData = user.providerData;
+          
+
           // [START_EXCLUDE]
           document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
           document.getElementById('quickstart-sign-in').textContent = 'Log out';
+
           window.location.href = "/decide.html";
           // [END_EXCLUDE]
         } else {
@@ -86,11 +89,10 @@
         // [END_EXCLUDE]
       });
       // [END authstatelistener]
-
       document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
     }
 
-    var USERS_LOCATION = 'https://tic-tac-toe-ca33e.firebaseio.com/Users'; // Needs new database address
+    var USERS_LOCATION = 'https://tictactoe-37965.firebaseio.com/'; // Needs new database address
 
           function userExistsCallback(opponentId, exists) {
             if (exists) {
