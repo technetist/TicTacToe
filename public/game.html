@@ -30,7 +30,53 @@
     <link rel="alternate stylesheet" type="text/css" title="pink" href="designr-theme-pink.css">
     <link rel="alternate stylesheet" type="text/css" title="purple" href="designr-theme-purple.css">
     <link rel="alternate stylesheet" type="text/css" title="red" href="designr-theme-red.css">
-    
+    <script src="cookies.js"></script>
+
+    <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1190327587746982',
+        cookie : true, // enable cookies to allow the server to access the session
+        status : true, // check login status
+        xfbml      : true,
+        version    : 'v2.8'
+      });
+      FB.AppEvents.logPageView();
+      FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          console.log(response);
+          if(FB.getAuthResponse != null) {
+            FB.api('/me', function(response)
+            {
+              var player1 = document.getElementById('player1');
+              player1.innerHTML = player1.innerHTML + '<div class="players"><h3>Player 1: ' + response.name + '</h3><img src="http://graph.facebook.com/' + response.id + '/picture/" class="fb_img"></div>';
+            });
+
+            var opponent = getCookie('player2_id');
+            if (opponent != "") {
+              var player2_ids = JSON.parse(opponent);
+            }
+            FB.api('/' + player2_ids, function(response)
+            {
+              var player2 = document.getElementById('player2');
+              player2.innerHTML = player2.innerHTML + '<div class="players"><h3>Player 2: ' + response.name + '</h3><img src="http://graph.facebook.com/' + response.id + '/picture/" class="fb_img"></div>';
+            });
+          };
+        } else if (response.status === 'not_authorized') {
+          console.log('not connected to app');
+        } else {
+          console.log('not logged in to fb');
+        }
+      });
+    };
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+    </script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -58,7 +104,10 @@
       </nav>
 
       <div class="page-header">
-        <h1 id="playerName">Player's Name</h1>
+        <h1 id="playerName">Game On!</h1>
+        <div id="player1"></div>
+        <div id="player2"></div>
+
       </div>
 
       <div class="center-content">

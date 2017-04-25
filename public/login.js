@@ -98,10 +98,12 @@
               window.location.href = "/game.html";
             } else {
               alert('user ' + opponentId + ' does not exist!');
+              window.location.href = "/game.html";
+
             }
           }
 
-          // Tests to see if /users/<userId> has any data. 
+          // Tests to see if /users/<userId> has any data.
           function checkIfUserExists(opponentId) {
             var usersRef = firebase.database().ref('Users');
             usersRef.child(opponentId).once('value', function(snapshot) {
