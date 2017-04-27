@@ -94,7 +94,9 @@ function getUserId(facebookId) {
           // usersRef.push(userData);
           if(dbfacebookId != null){
             usersRef.child(dbfacebookId).set(userData);
-            window.location.href = "/decide.html";
+            setTimeout(function() {
+              window.location.href = "/decide.html";
+            }, 1000);
           }
           
 
