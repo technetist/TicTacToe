@@ -95,7 +95,7 @@ function getUserId(facebookId) {
           if(dbfacebookId != null){
             usersRef.child(dbfacebookId).set(userData);
             setTimeout(function() {
-              window.location.href = "/decide.html";
+              window.location.href = "/decide.html" + '?' + dbfacebookId;
             }, 1000);
           }
           
