@@ -1,5 +1,5 @@
 
-
+function initApp() {
     /**
      * Function called when clicking the Login/Logout button.
      */
@@ -15,47 +15,7 @@
 	document.getElementById('quickstart-sign-out').addEventListener('click', loginUserOut, true);
     
 
-    /**
-     * initApp handles setting up UI event listeners and registering Firebase auth listeners:
-     *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
-     *    out, and that is where we update the UI.
-     */
-    function initApp() {
-      // Listening for auth state changes.
-      // [START authstatelistener]
-      firebase.auth().onAuthStateChanged(function(user) {
-
-        
-          // User is signed in.
-          var displayName = user.displayName;
-          var email = user.email;
-          var emailVerified = user.emailVerified;
-          var photoURL = user.photoURL;
-          var isAnonymous = user.isAnonymous;
-          var uid = user.uid;
-          var providerData = user.providerData;
-          var userStatus = "Online";
-
-          document.getElementById('user-name').textContent = user.displayName;
-
-
-          // Get a reference to the database service
-          //var firebaseRef = firebase.database().ref();
-          //firebaseRef.push().set(displayName);
-
-          var firebaseRef = firebase.database();
-          var usersRef = firebaseRef.ref('Users');
-          var userData = {
-            name: displayName,
-            email: email,
-            userId: uid,
-            status: userStatus
-          };
-          usersRef.push(userData);
-          console.log(userStatus);
-      });
-    }
-
+}
 
 	/**
      * Create instance for games.
@@ -69,10 +29,6 @@
     }
     document.getElementById('play').addEventListener('click', createGame);
 
-
-
-
-    var USERS_LOCATION = 'https://tictactoe-37965.firebaseio.com/';
 
           function userExistsCallback(opponentId, exists) {
             if (exists) {

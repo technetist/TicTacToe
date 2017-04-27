@@ -50,6 +50,18 @@
         version    : 'v2.8'
       });
       FB.AppEvents.logPageView();
+      // FB.getLoginStatus(function(response) {
+      //   if (response.status === 'connected') {
+
+      //    FB.api('/me', function(response) {
+      //         console.log(response);
+              
+      //   });
+
+      //   }
+      // });
+        
+      
     };
 
     (function(d, s, id){
@@ -59,6 +71,8 @@
        js.src = "//connect.facebook.net/en_US/sdk.js";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
+
+        
   </script>
 
     <div class="container">
@@ -136,11 +150,11 @@
     <script>
       // Initialize Firebase
       var config = {
-        apiKey: "AIzaSyA3EP7OkyARI7-9TxGyCgfMlTVthbXpwHM",
-        authDomain: "tictactoe-37965.firebaseapp.com",
-        databaseURL: "https://tictactoe-37965.firebaseio.com",
-        projectId: "tictactoe-37965",
-        storageBucket: "tictactoe-37965.appspot.com",
+        apiKey: "AIzaSyB7d96qhPCaoNsPxzHeOLh99LIPnKQkCOQ",
+        authDomain: "tic-tac-toe-ca33e.firebaseapp.com",
+        databaseURL: "https://tic-tac-toe-ca33e.firebaseio.com/",
+        projectId: "tic-tac-toe-ca33e",
+        storageBucket: "tic-tac-toe-ca33e.appspot.com",
         messagingSenderId: "364295254927"
       };
       firebase.initializeApp(config);
