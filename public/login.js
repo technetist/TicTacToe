@@ -1,5 +1,8 @@
-
-
+var ufacebookId;
+function getUserId(facebookId) {
+  ufacebookId = facebookId;
+  initApp(ufacebookId);
+}
     /**
      * Function called when clicking the Login/Logout button.
      */
@@ -9,9 +12,6 @@
         // [START createprovider]
         var provider = new firebase.auth.FacebookAuthProvider();
         // [END createprovider]
-        // [START addscopes]
-        provider.addScope('user_birthday');
-        // [END addscopes]
         // [START signin]
         firebase.auth().signInWithPopup(provider).then(function(result) {
           // This gives you a Facebook Access Token. You can use it to access the Facebook API.
@@ -62,20 +62,47 @@
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           // User is signed in.
+
+          
+
+          var dbfacebookId = ufacebookId;
           var displayName = user.displayName;
           var email = user.email;
-          var emailVerified = user.emailVerified;
-          var photoURL = user.photoURL;
-          var isAnonymous = user.isAnonymous;
           var uid = user.uid;
           var providerData = user.providerData;
+          var userStatus = "Offline";
+
+          // document.getElementById('user-name').textContent = user.displayName;
+
+          var firebaseRef = firebase.database();
+          var usersRef = firebaseRef.ref('Users');
+          var userData = {
+            name: displayName,
+            email: email,
+            userId: uid,
+            facebookId: dbfacebookId,
+            status: userStatus
+          };
+
+          // usersRef.orderByChild("userId").equalTo(uid).once("value", function(snapshot) {
+          //   var userData = snapshot.val();
+          //   if (userData == null){
+          //     usersRef.push(userData);
+          //    }
+          // });
+
+          // usersRef.push(userData);
+          if(dbfacebookId != null){
+            usersRef.child(dbfacebookId).set(userData);
+            window.location.href = "/decide.html";
+          }
           
 
           // [START_EXCLUDE]
           document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
           document.getElementById('quickstart-sign-in').textContent = 'Log out';
 
-          window.location.href = "/decide.html";
+          
           // [END_EXCLUDE]
         } else {
           // User is signed out.
@@ -92,25 +119,6 @@
       document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
     }
 
-    var USERS_LOCATION = 'https://tictactoe-37965.firebaseio.com/'; // Needs new database address
-
-          function userExistsCallback(opponentId, exists) {
-            if (exists) {
-              alert('connecting you with user ' + opponentId + ' exists!');
-              window.location.href = "/game.html";
-            } else {
-              alert('user ' + opponentId + ' does not exist!');
-            }
-          }
-
-          // Tests to see if /users/<userId> has any data. 
-          function checkIfUserExists(opponentId) {
-            var usersRef = firebase.database().ref('Users');
-            usersRef.child(opponentId).once('value', function(snapshot) {
-              var exists = (snapshot.val() !== null);
-              userExistsCallback(opponentId, exists);
-            });
-          }
 
     window.onload = function() {
       initApp();
