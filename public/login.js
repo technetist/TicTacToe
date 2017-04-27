@@ -94,6 +94,7 @@ function getUserId(facebookId) {
           // usersRef.push(userData);
           if(dbfacebookId != null){
             usersRef.child(dbfacebookId).set(userData);
+            window.location.href = "/decide.html";
           }
           
 
@@ -101,7 +102,7 @@ function getUserId(facebookId) {
           document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
           document.getElementById('quickstart-sign-in').textContent = 'Log out';
 
-          // window.location.href = "/decide.html";
+          
           // [END_EXCLUDE]
         } else {
           // User is signed out.
